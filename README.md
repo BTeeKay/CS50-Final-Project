@@ -14,3 +14,7 @@ After having a think about different options for my final project, I have initia
 ###### Update 14th
 
 I setup a Discord Bot and made it do the obligatory “Hello, World!” Whilst then planning the scope and features for the bot I realised it was far beyond what I would be able to do as a solo project in a reasonable amount of time. The main reason for this is that the bot would need to be “multiplayer” for users to be able to interact and play the game with their own character. The challenge of implementing this for this project is beyond what I think is necessary and practical. Saying that I have not completely given up. Using the knowledge gained from CS50 I believe I could implement something similar as a web app. This would require creating a Front End and Back End but I believe I can use technologies previously used in the course to do this.
+
+##### 19th October 2021
+
+With making the decision to make my Final Project a Web App I enrolled in CS50W: Web Programming with Python and JavaScript. This will mean that finishing this project will take longer but the end product should be of a higher quality.
