@@ -1,7 +1,8 @@
 # CS50-Final-Project
 #### Video Demo:  TODO
 ### Description:
-TODO
+These are initial comments for the description and will be fleshed out once the project is finished. This Web App is going to be a text based game that will allow the user to create a mini space empire. The user will initially be able to collect resources and expand their ability to do so before then being able to create ships.
+
 ### Progress:
 ##### 13th October 2021
 
@@ -18,3 +19,8 @@ I setup a Discord Bot and made it do the obligatory “Hello, World!” Whilst t
 ##### 19th October 2021
 
 With making the decision to make my Final Project a Web App I enrolled in CS50W: Web Programming with Python and JavaScript. This will mean that finishing this project will take longer but the end product should be of a higher quality.
+
+##### 28th October 2021
+
+Having now completed the first 5 lectures in CS50w, I am now going to use the Django framework instead of Flask. I am also going to be using VSC as my IDE instead of the CS50 IDE. I am currently in the process of cloning the git repository there and removing the old flask files and creating a new Django project. The first part I will implement for the Django Project will be the users Login/Logout function. I will also fill out a brief description of what I initially think that this Web Application will be.
+
