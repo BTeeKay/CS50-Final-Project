@@ -1,0 +1,14 @@
+{% extends 'users/layout.html' %}
+
+{% block body %}
+<form method="post" action="">
+    {% csrf_token %}
+    {{ form.username.label }}<br>
+    {{ form.username }}<br>
+    {{ form.password1.label }}<br>
+    {{ form.password1 }}<br>
+    {{ form.password2.label }}<br>
+    {{ form.password2 }}<br><br>
+    <input type="submit" name="Create User" value="Submit">
+</form>
+{% endblock %}

@@ -1,16 +1,33 @@
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.forms import UserCreationForm
 from django.http.response import HttpResponseRedirect
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 
+from .forms import CreateUserForm
+
 # Create your views here.
 
 def index(request):
-    if not request.user.is_authenticated:
-        return HttpResponseRedirect(reverse("login"))
-    
+    # if user isn't logged in, send them to Login page
+    # if not request.user.is_authenticated:
+    #     return HttpResponseRedirect(reverse("login"))
     return render(request, "users/home.html")
+
+def register_view(request):
+    # Register form from Django
+    form = CreateUserForm
+
+    if request.method == 'POST':
+        form = CreateUserForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse("index"))
+
+    return render(request, "users/register.html", {
+        "form": form
+    })
 
 def login_view(request):
     if request.method == "POST":
