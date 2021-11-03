@@ -11,17 +11,22 @@ from .forms import CreateUserForm
 
 def index(request):
     # if user isn't logged in, send them to Login page
-    # if not request.user.is_authenticated:
-    #     return HttpResponseRedirect(reverse("login"))
+    if request.user.is_authenticated:
+        return HttpResponseRedirect(reverse("game"))
+    
     return render(request, "users/home.html")
 
 def register_view(request):
     # Register form from Django
+    if request.user.is_authenticated:
+        return HttpResponseRedirect(reverse("game"))
+    
     form = CreateUserForm
 
     if request.method == 'POST':
         form = CreateUserForm(request.POST)
         if form.is_valid():
+
             form.save()
             return HttpResponseRedirect(reverse("index"))
 
@@ -30,13 +35,17 @@ def register_view(request):
     })
 
 def login_view(request):
+    
+    if request.user.is_authenticated:
+        return HttpResponseRedirect(reverse("game"))
+    
     if request.method == "POST":
         username = request.POST["username"]
         password = request.POST["password"]
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            return HttpResponseRedirect(reverse("index"))
+            return HttpResponseRedirect(reverse("game"))
         else:
             return render(request, "users/login.html", {
                 "message": "Invalid Login, try again"

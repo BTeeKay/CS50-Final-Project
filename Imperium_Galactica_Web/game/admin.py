@@ -1,4 +1,5 @@
 from django.contrib import admin
+from .models import Commodity
 
 # Register your models here.
-# html has went werird, test
+admin.site.register(Commodity)

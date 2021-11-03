@@ -1,0 +1,46 @@
+{% extends "game/layout.html" %}
+
+{% block title %}
+    IGW
+{% endblock %}
+
+{% block body %}
+    <br>
+    <h3>Welcome {{ user.username }} to IGW</h3><br><br>
+    <h5>Please start building your Empire</h5><br>
+    <div class="container-sm">
+        <div class="row">
+            <div class="col">
+                <h4>Buildings:</h4>
+                <div class="flex-container horse">
+                    <div>Building 1</div>
+                </div>
+            </div>
+            <div class="col">
+                <h4>Current Project:</h4>
+                <div class="flex-container horse">
+                    <div>Project 1</div>
+                </div>
+            </div>
+            <div class="col">
+                <h4>Resources:</h4>
+                <div class="flex-container horse">
+                    <div>Metal: {{ comm.Metal }}</div>
+                    <div>Hydrogen: {{ comm.Hydrogen }}</div>
+                    <div>AntiMatter: {{ comm.AntiMatter }}</div>
+                    <div>
+                        <form method="post" action="" name="resource">
+                            {% csrf_token %}
+                            <input type="submit" value="Get Resources"></div>
+                        </form>
+                    </div>
+            </div>
+        </div>
+    </div><br><br><br>
+    <footer>
+        <div class="flex-container foot">
+            <div>Made by brian Kerr</div>
+        </div>
+    </footer>
+    
+    {% endblock %}

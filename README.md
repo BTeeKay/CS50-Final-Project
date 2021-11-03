@@ -24,3 +24,7 @@ With making the decision to make my Final Project a Web App I enrolled in CS50W:
 
 Having now completed the first 5 lectures in CS50w, I am now going to use the Django framework instead of Flask. I am also going to be using VSC as my IDE instead of the CS50 IDE. I am currently in the process of cloning the git repository there and removing the old flask files and creating a new Django project. The first part I will implement for the Django Project will be the users Login/Logout function. I will also fill out a brief description of what I initially think that this Web Application will be.
 
+##### 3rd November 2021
+
+The more I progress with the web app the more I am having to read documentation and constantly google things that I don’t yet know. The project has become less about the final product and more about learning Django and Python. This isn’t necessarily a bad thing, it is just not what I was expecting. My project currently has a Register/Login/Logout feature and the main page setup for the game. Currently game wise the player can update their resources by clicking a submit button which sends a post request. Next will be to give the player “buildings” which can be upgraded and when upgraded will provide more resources. This will all be tied in with a leaderboard.
+
