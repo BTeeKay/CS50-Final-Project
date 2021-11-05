@@ -1,0 +1,76 @@
+{% extends "game/layout.html" %}
+{% load static %}
+
+{% block title %}
+    Buildings
+{% endblock %}
+
+{% block body %}
+<div class="container-sm">
+    <div class="row">
+        <div class="col">
+            <div class="flex-container horse">
+                <img src="{% static 'game/SM.jpg' %}" alt="My image" width="75" height="50">
+                <h4>Steel Mill</h4>
+                <div>
+                    Current Level: {{ builds.SteelMill }}
+                    Next Level: {{ builds.SteelMill|add:"1" }}
+                </div> 
+                <h5>Resource Needed for next level</h5><br>
+                Steel: {{ steel.Steel}} Hydrogen: {{ steel.Hydrogen}} Anti Matter: {{ steel.AntiMatter }}
+                {% if message %}
+                    <p>{{ message }}</p>
+                {% endif %}
+                <br>
+                <div>
+                    <form method="post" name="steel">
+                        {% csrf_token %} 
+                        <input type="submit" name="steel" value="Upgrade">
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="flex-container horse">
+                <img src="{% static 'game/hy.jpg' %}" alt="My image" width="75" height="50">
+                <h4>H Collector</h4>
+                <div>
+                    Current Level: {{ builds.HCollector }}
+                    Next Level: {{ builds.HCollector|add:"1" }}
+                </div>
+                <h5>Resource Needed for next level</h5><br>
+                Steel: {{ hydro.Steel}} Hydrogen: {{ hydro.Hydrogen}} Anti Matter: {{ hydro.AntiMatter }}
+                <br>
+                <div>
+                    <form method="post" name="hydrogen">
+                        {% csrf_token %} 
+                        <input type="submit" name="hydrogen" value="Upgrade">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="flex-container horse">
+                <img src="{% static 'game/pc.jpg' %}" alt="My image" width="75" height="50">
+                <h4>Particle Collider</h4>
+                <div>
+                    Current Level: {{ builds.ParticleCollider }}
+                    Next Level: {{ builds.ParticleCollider|add:"1" }}
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="flex-container horse">
+                <img src="{% static 'game/BS.jpg' %}" alt="My image" width="75" height="50">
+                <h4>Shipyard</h4>
+                <div>
+                    Current Level: {{ builds.ShipFactory }}
+                    Next Level: {{ builds.ShipFactory|add:"1" }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

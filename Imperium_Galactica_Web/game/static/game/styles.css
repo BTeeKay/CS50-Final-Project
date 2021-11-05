@@ -14,7 +14,7 @@ body {
   display: flex;
   flex-direction: column;
   background-color: greenyellow;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   padding: 10px;
   margin: 20px;
   justify-content: center;
@@ -26,21 +26,9 @@ body {
 
 .flex-container > div {
   /* background-color: #f1f1f1; */
-  width: 120px;
+  width: 140px;
   margin: 10px;
   text-align: center;
   line-height: 30px;
   font-size: 15px;
-}
-
-.foot {
-    justify-content: center;
-    align-items: center;
-}
-
-.foot > div {
-    padding: 15px 30px;
-    border-bottom: 1px solid #dadce0;
-    font-size: 15px;
-    color: #70757a;
 }

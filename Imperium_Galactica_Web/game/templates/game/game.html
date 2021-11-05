@@ -6,41 +6,61 @@
 
 {% block body %}
     <br>
-    <h3>Welcome {{ user.username }} to IGW</h3><br><br>
+    <h3>Welcome {{ user.username.capitalize }} to IGW</h3><br><br>
     <h5>Please start building your Empire</h5><br>
     <div class="container-sm">
         <div class="row">
             <div class="col">
                 <h4>Buildings:</h4>
                 <div class="flex-container horse">
-                    <div>Building 1</div>
+                    <div>Steel Mill: {{ builds.SteelMill }}</div>
+                    <div>H Collector: {{ builds.HCollector }}</div>
+                    <div>Particle Collider: {{ builds.ParticleCollider }}</div>
+                    <div>Shipyard: {{ builds.ShipFactory }}</div>
+                    <div>
+                        <form method="get" action="buildings">
+                            <input type="submit" value="Go To Buildings">
+                        </form>
+                    </div>
                 </div>
             </div>
             <div class="col">
-                <h4>Current Project:</h4>
+                <h4>Fleet:</h4>
                 <div class="flex-container horse">
-                    <div>Project 1</div>
+                    <div>Fighter: {{ ships.Fighter }}</div>
+                    <div>Heavy Fighter: {{ ships.HeavyFighter }}</div>
+                    <div>Destroyer: {{ ships.Destroyer }}</div>
+                    <div>Corvette: {{ ships.Corvette }}</div>
+                    <div>Cruiser: {{ ships.Cruiser }}</div>
+                    <div>Battleship: {{ ships.Battleship }}</div>
+                    <div>
+                        <form method="get" action="fleets">
+                            <input type="submit" value="Go To Fleets">
+                        </form>
+                    </div>
                 </div>
             </div>
             <div class="col">
                 <h4>Resources:</h4>
                 <div class="flex-container horse">
-                    <div>Metal: {{ comm.Metal }}</div>
-                    <div>Hydrogen: {{ comm.Hydrogen }}</div>
-                    <div>AntiMatter: {{ comm.AntiMatter }}</div>
+                    <div>Metal: {{ comms.Metal }}</div>
+                    <div>Hydrogen: {{ comms.Hydrogen }}</div>
+                    <div>AntiMatter: {{ comms.AntiMatter }}</div>
                     <div>
                         <form method="post" action="" name="resource">
                             {% csrf_token %}
-                            <input type="submit" value="Get Resources"></div>
+                            <input type="submit" value="Get Resources">
                         </form>
                     </div>
+                </div>
             </div>
         </div>
-    </div><br><br><br>
-    <footer>
-        <div class="flex-container foot">
-            <div>Made by brian Kerr</div>
+        <div class="row">
+            <div class="col">
+                <div class="flex-container horse">
+                    <div>this is a test for testing purposes</div>
+                </div>
+            </div>
         </div>
-    </footer>
-    
+    </div>
     {% endblock %}
