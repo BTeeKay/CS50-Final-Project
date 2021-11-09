@@ -5,4 +5,113 @@
 {% endblock %}
 
 {% block body %}
+<div class="container-sm">
+    {% if message %}
+    <div class="row">
+        <div class="col">
+            <div class="flex-container warning">
+                <div>
+                    <h5>{{ message }}</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    <div class="row">
+        <div class="col">
+            <div class="flex-container horse">
+                <h4>Fighter</h4>
+                <div>
+                    You have {{ fleet.Fighter }} fighters<br>
+                    They are worth<br> {{ todo }} points
+                </div>
+                {% if ship >= 1 %}
+                <form method="post" name="fighter">
+                    {% csrf_token %} 
+                    <input type="submit" name="fighter" value="Build">
+                </form>
+                {% endif %}
+            </div>
+        </div>
+        <div class="col">
+            <div class="flex-container horse">
+                <h4>Heavy Fighter</h4>
+                <div>
+                    You have {{ fleet.HeavyFighter }} fighters<br>
+                    They are worth<br> {{ todo }} points
+                </div>
+                {% if ship >= 5 %} 
+                <form method="post" name="heavyfighter">
+                    {% csrf_token %} 
+                    <input type="submit" name="heavyfighter" value="Build">
+                </form>
+                {% endif %}
+            </div>
+        </div>
+        <div class="col">
+            <div class="flex-container horse">
+                <h4>Destroyer</h4>
+                <div>
+                    You have {{ fleet.Destroyer }} fighters<br>
+                    They are worth<br> {{ todo }} points
+                </div>
+                {% if ship >= 9 %} 
+                <form method="post" name="destroyer">
+                    {% csrf_token %} 
+                    <input type="submit" name="destroyer" value="Build">
+                </form>
+                {% endif %} 
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="flex-container horse">
+                <h4>Corvette</h4>
+                <div>
+                    You have {{ fleet.Corvette }} fighters<br>
+                    They are worth<br> {{ todo }} points
+                </div>
+                {% if ship >= 13 %} 
+                <form method="post" name="corvette">
+                    {% csrf_token %} 
+                    <input type="submit" name="corvette" value="Build">
+                </form>
+                {% endif %} 
+            </div>
+        </div>
+        <div class="col">
+            <div class="flex-container horse">
+                <h4>Cruiser</h4>
+                <div>
+                    You have {{ fleet.Cruiser }} fighters<br>
+                    They are worth<br> {{ todo }} points
+                </div> 
+                {% if ship >= 17 %} 
+                <form method="post" name="cruiser">
+                    {% csrf_token %} 
+                    <input type="submit" name="cruiser" value="Build">
+                </form>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="flex-container horse">
+                <h4>Battleship</h4>
+                <div>
+                    You have {{ fleet.Battleship }} fighters<br>
+                    They are worth<br> {{ todo }} points
+                </div>
+                {% if ship >= 21 %} 
+                <form method="post" name="battleship">
+                    {% csrf_token %} 
+                    <input type="submit" name="battleship" value="Build">
+                </form>
+                {% endif %} 
+            </div>
+        </div>
+    </div>
+    
 {% endblock %}

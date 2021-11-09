@@ -1,5 +1,6 @@
 {% extends "game/layout.html" %}
 {% load static %}
+{% load humanize %}
 
 {% block title %}
     Buildings
@@ -7,20 +8,28 @@
 
 {% block body %}
 <div class="container-sm">
+    {% if message %}
+    <div class="row">
+        <div class="col">
+            <div class="flex-container warning">
+                <div>
+                    <h5>{{ message }}</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
     <div class="row">
         <div class="col">
             <div class="flex-container horse">
                 <img src="{% static 'game/SM.jpg' %}" alt="My image" width="75" height="50">
                 <h4>Steel Mill</h4>
                 <div>
-                    Current Level: {{ builds.SteelMill }}
+                    Current Level: {{ builds.SteelMill }}<br>
                     Next Level: {{ builds.SteelMill|add:"1" }}
                 </div> 
                 <h5>Resource Needed for next level</h5><br>
-                Steel: {{ steel.Steel}} Hydrogen: {{ steel.Hydrogen}} Anti Matter: {{ steel.AntiMatter }}
-                {% if message %}
-                    <p>{{ message }}</p>
-                {% endif %}
+                Steel: {{ steel.Steel|intcomma }} Hydrogen: {{ steel.Hydrogen|intcomma }} Anti Matter: {{ steel.AntiMatter|intcomma }}
                 <br>
                 <div>
                     <form method="post" name="steel">
@@ -35,11 +44,11 @@
                 <img src="{% static 'game/hy.jpg' %}" alt="My image" width="75" height="50">
                 <h4>H Collector</h4>
                 <div>
-                    Current Level: {{ builds.HCollector }}
+                    Current Level: {{ builds.HCollector }}<br>
                     Next Level: {{ builds.HCollector|add:"1" }}
                 </div>
                 <h5>Resource Needed for next level</h5><br>
-                Steel: {{ hydro.Steel}} Hydrogen: {{ hydro.Hydrogen}} Anti Matter: {{ hydro.AntiMatter }}
+                Steel: {{ hydro.Steel|intcomma }} Hydrogen: {{ hydro.Hydrogen|intcomma }} Anti Matter: {{ hydro.AntiMatter|intcomma }}
                 <br>
                 <div>
                     <form method="post" name="hydrogen">
@@ -56,8 +65,17 @@
                 <img src="{% static 'game/pc.jpg' %}" alt="My image" width="75" height="50">
                 <h4>Particle Collider</h4>
                 <div>
-                    Current Level: {{ builds.ParticleCollider }}
+                    Current Level: {{ builds.ParticleCollider }}<br>
                     Next Level: {{ builds.ParticleCollider|add:"1" }}
+                </div>
+                <h5>Resource Needed for next level</h5><br>
+                Steel: {{ particle.Steel|intcomma }} Hydrogen: {{ particle.Hydrogen|intcomma }} Anti Matter: {{ particle.AntiMatter|intcomma }}
+                <br>
+                <div>
+                    <form method="post" name="particle">
+                        {% csrf_token %} 
+                        <input type="submit" name="particle" value="Upgrade">
+                    </form>
                 </div>
             </div>
         </div>
@@ -66,8 +84,17 @@
                 <img src="{% static 'game/BS.jpg' %}" alt="My image" width="75" height="50">
                 <h4>Shipyard</h4>
                 <div>
-                    Current Level: {{ builds.ShipFactory }}
+                    Current Level: {{ builds.ShipFactory }}<br>
                     Next Level: {{ builds.ShipFactory|add:"1" }}
+                </div>
+                <h5>Resource Needed for next level</h5><br>
+                Steel: {{ ship.Steel|intcomma }} Hydrogen: {{ ship.Hydrogen|intcomma }} Anti Matter: {{ ship.AntiMatter|intcomma }}
+                <br>
+                <div>
+                    <form method="post" name="ship">
+                        {% csrf_token %} 
+                        <input type="submit" name="ship" value="Upgrade">
+                    </form>
                 </div>
             </div>
         </div>

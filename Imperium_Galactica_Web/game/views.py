@@ -3,7 +3,7 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.contrib.auth import authenticate
 from .models import Commodity, Fleet, Building, SteelMills, HCollector, ParticleCollider, ShipFactory
-from .game import ResourceGather, UpgradeBuilding
+from .game import ResourceGather, UpgradeBuilding, FleetBuild
 
 
 # Create your views here.
@@ -13,8 +13,8 @@ def buildings(request):
         return HttpResponseRedirect(reverse("index"))
         
     if request.method == "POST":
-        UpgradeBuilding(request)
-        if UpgradeBuilding(request):
+        test = UpgradeBuilding(request)
+        if test:
             player = str(request.user.username)
             build = Building.objects.get(Name=player)
             steel = build.SteelMill + 1
@@ -52,8 +52,24 @@ def fleets(request):
 
     if not request.user.is_authenticated:
         return HttpResponseRedirect(reverse("index"))
+    
+    message = ""
 
-    return render(request, "game/fleets.html")
+    if request.method == "POST":
+        test = FleetBuild(request)
+        if test:
+            message = "Not enough Resource"
+
+    player = str(request.user.username)
+    fleet = Fleet.objects.get(Name=player)
+    build = Building.objects.get(Name=player)
+    ship = build.ShipFactory
+    
+    return render(request, "game/fleets.html", {
+        "fleet": fleet,
+        "message": message,
+        "ship": ship
+    })
 
 
 def game(request):
