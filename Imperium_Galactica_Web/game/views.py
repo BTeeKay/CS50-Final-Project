@@ -16,7 +16,7 @@ def leaderboard(request):
 
     player = str(request.user.username)
 
-    scores = PlayerScore.objects.all()
+    scores = PlayerScore.objects.all().order_by('-Score')
     print(scores)
 
     return render(request, "game/leaderboard.html", {
