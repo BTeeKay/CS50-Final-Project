@@ -1,6 +1,7 @@
 {% extends "game/layout.html" %}
 {% load static %}
 {% load humanize %}
+{% load mathfilters %}
 
 {% block title %}
     Buildings
@@ -26,7 +27,7 @@
                 <h4>Steel Mill</h4>
                 <div>
                     Current Level: {{ builds.SteelMill }}<br>
-                    Next Level: {{ builds.SteelMill|add:"1" }}
+                    Next Level: {{ builds.SteelMill|add:1 }}
                 </div> 
                 <h5>Resource Needed for next level</h5><br>
                 Steel: {{ steel.Steel|intcomma }} Hydrogen: {{ steel.Hydrogen|intcomma }} Anti Matter: {{ steel.AntiMatter|intcomma }}

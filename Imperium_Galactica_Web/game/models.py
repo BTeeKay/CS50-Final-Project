@@ -77,3 +77,12 @@ class ShipFactory(models.Model):
     
     def __str__(self):
         return f"{self.Level}"
+
+
+class PlayerScore(models.Model):
+
+    Name = models.CharField(primary_key = True, unique=True, max_length=64)
+    Score = models.PositiveIntegerField(default=0)
+    
+    def __str__(self):
+        return f"{self.Score}"

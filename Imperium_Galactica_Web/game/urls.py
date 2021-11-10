@@ -6,4 +6,5 @@ urlpatterns = [
     path("", views.game, name="game"),
     path("buildings", views.buildings, name="buildings"),
     path("fleets", views.fleets, name="fleets"),
+    path("leaderboard", views.leaderboard, name="leaderboard"),
 ]

@@ -1,7 +1,10 @@
 # CS50-Final-Project
 #### Video Demo:  TODO
 ### Description:
-These are initial comments for the description and will be fleshed out once the project is finished. This Web App is going to be a text based game that will allow the user to create a mini space empire. The user will initially be able to collect resources and expand their ability to do so before then being able to create ships.
+This Web App is going to be a text based game that will allow the user to create a mini space empire. It is very, very loosely based on the 1992 RTS Imperium Galactica 2. The player will start with a small amount of resources and will be able to start building their base to gather more resources. After getting their buildings set up and making a Ship Factory they will be able to start building ships. Ship provide the player with points that will then place them on a leader board viewable by all players. The web based game scales with level of buildings giving access to bigger ships, which in turn give more points.
+
+The project has been made using the VSC IDE and the Django Framework. The project is a mix of Python, HTML, CSS, Bootstrap and Django’s template language which is much like Jinja. The project uses many Django database models in the background also.
+
 
 ### Progress:
 ##### 13th October 2021
@@ -27,4 +30,8 @@ Having now completed the first 5 lectures in CS50w, I am now going to use the Dj
 ##### 3rd November 2021
 
 The more I progress with the web app the more I am having to read documentation and constantly google things that I don’t yet know. The project has become less about the final product and more about learning Django and Python. This isn’t necessarily a bad thing, it is just not what I was expecting. My project currently has a Register/Login/Logout feature and the main page setup for the game. Currently game wise the player can update their resources by clicking a submit button which sends a post request. Next will be to give the player “buildings” which can be upgraded and when upgraded will provide more resources. This will all be tied in with a leaderboard.
+
+##### 10th November 2021
+
+The project is now in a 'playable' state and ready for its initial release/submission. There are a few things I want to add and design changes I want to make but I have met the requirements for submission and I have already spent a lot of time on this project. Any changes made will be after it is submitted to CS50
 

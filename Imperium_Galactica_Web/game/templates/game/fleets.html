@@ -1,4 +1,5 @@
 {% extends "game/layout.html" %}
+{% load mathfilters %}
 
 {% block title %}
     Fleets
@@ -22,8 +23,10 @@
             <div class="flex-container horse">
                 <h4>Fighter</h4>
                 <div>
-                    You have {{ fleet.Fighter }} fighters<br>
-                    They are worth<br> {{ todo }} points
+                    You have {{ fleet.Fighter }} Fighters<br>
+                    {% with base=2 %}
+                    They are worth<br> {{ fleet.Fighter|mul:base|mul:2 }} points
+                    {% endwith %} 
                 </div>
                 {% if ship >= 1 %}
                 <form method="post" name="fighter">
@@ -37,8 +40,10 @@
             <div class="flex-container horse">
                 <h4>Heavy Fighter</h4>
                 <div>
-                    You have {{ fleet.HeavyFighter }} fighters<br>
-                    They are worth<br> {{ todo }} points
+                    You have {{ fleet.HeavyFighter }} Heavy Fighters<br>
+                    {% with base=6 %}
+                    They are worth<br> {{ fleet.HeavyFighter|mul:base|mul:3 }} points
+                    {% endwith %} 
                 </div>
                 {% if ship >= 5 %} 
                 <form method="post" name="heavyfighter">
@@ -52,8 +57,10 @@
             <div class="flex-container horse">
                 <h4>Destroyer</h4>
                 <div>
-                    You have {{ fleet.Destroyer }} fighters<br>
-                    They are worth<br> {{ todo }} points
+                    You have {{ fleet.Destroyer }} Destroyers<br>
+                    {% with base=17 %}
+                    They are worth<br> {{ fleet.Destroyer|mul:base|mul:4 }} points
+                    {% endwith %} 
                 </div>
                 {% if ship >= 9 %} 
                 <form method="post" name="destroyer">
@@ -69,8 +76,10 @@
             <div class="flex-container horse">
                 <h4>Corvette</h4>
                 <div>
-                    You have {{ fleet.Corvette }} fighters<br>
-                    They are worth<br> {{ todo }} points
+                    You have {{ fleet.Corvette }} Corvettes<br>
+                    {% with base=40 %}
+                    They are worth<br> {{ fleet.Corvette|mul:base|mul:5 }} points
+                    {% endwith %}
                 </div>
                 {% if ship >= 13 %} 
                 <form method="post" name="corvette">
@@ -84,8 +93,10 @@
             <div class="flex-container horse">
                 <h4>Cruiser</h4>
                 <div>
-                    You have {{ fleet.Cruiser }} fighters<br>
-                    They are worth<br> {{ todo }} points
+                    You have {{ fleet.Cruiser }} Cruisers<br>
+                    {% with base=100 %}
+                    They are worth<br> {{ fleet.Cruiser|mul:base|mul:6 }} points
+                    {% endwith %}
                 </div> 
                 {% if ship >= 17 %} 
                 <form method="post" name="cruiser">
@@ -101,8 +112,10 @@
             <div class="flex-container horse">
                 <h4>Battleship</h4>
                 <div>
-                    You have {{ fleet.Battleship }} fighters<br>
-                    They are worth<br> {{ todo }} points
+                    You have {{ fleet.Battleship }} Battleships<br>
+                    {% with base=275 %}
+                    They are worth<br> {{ fleet.Battleship|mul:base|mul:7 }} points
+                    {% endwith %}
                 </div>
                 {% if ship >= 21 %} 
                 <form method="post" name="battleship">

@@ -2,11 +2,27 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.contrib.auth import authenticate
-from .models import Commodity, Fleet, Building, SteelMills, HCollector, ParticleCollider, ShipFactory
-from .game import ResourceGather, UpgradeBuilding, FleetBuild
+from .models import PlayerScore, Commodity, Fleet, Building, SteelMills, HCollector, ParticleCollider, ShipFactory
+from .game import ResourceGather, UpgradeBuilding, FleetBuild, CalcScore
 
 
 # Create your views here.
+def leaderboard(request):
+    
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse("index"))
+    
+    CalcScore(request)
+
+    player = str(request.user.username)
+
+    scores = PlayerScore.objects.all()
+    print(scores)
+
+    return render(request, "game/leaderboard.html", {
+        "scores": scores
+    })
+
 def buildings(request):
 
     if not request.user.is_authenticated:
