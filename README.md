@@ -1,5 +1,5 @@
 # CS50-Final-Project
-#### Video Demo:  TODO
+#### Video Demo:  https://youtu.be/oL3YPUUAe_o
 ### Description:
 This Web App is going to be a text based game that will allow the user to create a mini space empire. It is very, very loosely based on the 1992 RTS Imperium Galactica 2. The player will start with a small amount of resources and will be able to start building their base to gather more resources. After getting their buildings set up and making a Ship Factory they will be able to start building ships. Ship provide the player with points that will then place them on a leader board viewable by all players. The web based game scales with level of buildings giving access to bigger ships, which in turn give more points.
 
